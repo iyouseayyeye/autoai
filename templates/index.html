@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>auto.ai - Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* CSS styles for the page */
+    body {
+      font-family: 'Lato', sans-serif;
+      background-image: url("{{ url_for('static', filename='background_image.jpg') }}");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+      color: #007bff;
+    }
+
+    .logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .logo img {
+      width: 400px;
+      height: auto;
+    }
+
+    .content {
+      width: 500px;
+      padding: 25px;
+      border-radius: 10px;
+      background-color: rgba(255, 255, 255, 0.8);
+      box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .content h1, .content p {
+      color: #0423d3;
+    }
+
+    .content p {
+      font-size: 18px;
+    }
+
+    .content .button-container {
+      margin-top: 20px;
+    }
+
+    .content .button-container a {
+      display: inline-block;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: #007bff;
+      color: #fff;
+      font-size: 18px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .content .button-container a:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="logo">
+    <img src="{{ url_for('static', filename='logo.png') }}" alt="Auto.AI Logo">
+  </div>
+  <div class="content">
+    <h1>Welcome to auto.ai</h1>
+    <p>Your Ultimate Automotive Solution</p>
+    <p>Are you looking for innovative automotive diagnostic tools and solutions? Look no further! auto.ai is here to revolutionize the way you approach automotive repairs and maintenance.</p>
+    <p>Our cutting-edge AI-powered software is designed to cater to a wide range of users:</p>
+    <ol>
+      <li>Automotive Professionals: Equip your team with the tools they need to work more efficiently, providing accurate diagnostics and repairs.</li>
+      <li>Car Owners: Empower yourself with the knowledge and resources to better understand and maintain your vehicle.</li>
+      <li>Car Enthusiasts: Embrace your passion for cars with our comprehensive automotive software that simplifies diagnostics and repairs.</li>
+    </ol>
+    <p>At auto.ai, we believe in the power of technology to transform the automotive industry. Our proprietary software provides accurate solutions, clear guides, and comprehensive reference materials, making any automotive job a breeze.</p>
+    <p>Ready to experience the future of automotive diagnostics? Get started with auto.ai today and discover the difference our AI-powered solutions can make in your automotive journey. Welcome to a world of efficiency, accuracy, and unmatched automotive expertise - welcome to auto.ai.</p>
+    <div class="button-container">
+      <a href="{{ url_for('login') }}">Get Started</a>
+    </div>
+  </div>
+</body>
+</html>
+

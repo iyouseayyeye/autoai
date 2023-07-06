@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Register</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* CSS styles for the page */
+    body {
+      font-family: 'Lato', sans-serif;
+      background-image: url("{{ url_for('static', filename='lightbulb_1.jpg') }}");
+      background-size: 125%;
+      background-repeat: no-repeat;
+      background-position: center center;
+      color: #007bff;
+    }
+
+    .logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .logo img {
+      width: 400px;
+      height: auto;
+    }
+
+    .bubble {
+      width: 500px;
+      padding: 25px;
+      border-radius: 10px;
+      background-color: rgba(253, 233, 189, 0.8);
+      box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .bubble h1, .bubble p {
+      color: #0423d3;
+    }
+
+    .bubble p {
+      font-size: 18px;
+    }
+
+    .bubble .register-form {
+      margin-top: 20px;
+    }
+
+    .bubble .register-form input[type="email"],
+    .bubble .register-form input[type="password"],
+    .bubble .register-form input[type="confirm_password"],
+    .bubble .register-form button[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: #fff;
+      color: #333;
+      font-size: 18px;
+    }
+
+    .bubble .register-form input[type="email"],
+    .bubble .register-form input[type="password"],
+    .bubble .register-form input[type="confirm_password"] {
+      height: 40px;
+    }
+
+    .bubble .register-form button[type="submit"] {
+      background-color: #007bff;
+      color: #fff;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .bubble .register-form button[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+
+    .bubble p.login-link {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 14px;
+      color: #666;
+    }
+
+    /* Additional styles for password requirements */
+    .password-requirements {
+      text-align: left;
+      margin-top: 5px;
+      font-size: 14px;
+      color: #666;
+    }
+
+    .password-requirements ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .password-requirements li::before {
+      content: "\2022";
+      color: #666;
+      display: inline-block;
+      width: 1em;
+      margin-left: -1em;
+    }
+
+    .requirements-title {
+      color: #0423d3;
+      font-weight: bold;
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .requirement {
+      color: #666;
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="logo">
+    <img src="{{ url_for('static', filename='logochamp.png') }}" alt="Company Logo">
+  </div>
+  <div class="bubble">
+    <h1>Welcome to Auto.AI Repair Pros</h1>
+    <p>Your Ultimate Efficiency Solution for Smart Diagnostics</p>
+    <p>Are you a service professional in the automotive repair industry looking to boost your efficiency and profits? Or perhaps a business owner seeking to empower your team to work smarter and faster? Look no further! Auto.AI Repair Pros is here to revolutionize the way you approach automotive repair.</p>
+    <p>Our cutting-edge AI-powered diagnostic software is designed to cater to a wide range of users:</p>
+    <ol>
+      <li>Service Pros & Business Owners: Equip your team with the tools they need to work more efficiently, freeing up time for more clients and increased profits.</li>
+      <li>Auto Shops & Technicians: Enhance your diagnostic capabilities and streamline your repair process with our advanced AI technology.</li>
+      <li>Car Enthusiasts: Embrace your love for DIY repairs without breaking a sweat, thanks to our user-friendly software that simplifies the diagnostic and repair process.</li>
+    </ol>
+    <p>At Auto.AI Repair Pros, we believe in the power of technology to transform the automotive repair industry. Our proprietary software minimizes research time, allowing you to focus on what you do best - fixing and repairing vehicles. With Auto.AI Repair Pros by your side, you'll unlock the future of automotive repair and elevate your profits.</p>
+    <p>Our mission is to provide top-notch diagnostic capabilities for all your automotive repair and maintenance needs. With highly accurate answers, clear guides, and comprehensive reference materials, our AI assistants make any job a breeze.</p>
+    <p>Ready to experience the future of automotive repair? Try Auto.AI Repair Pros today for FREE and discover the difference our AI-powered solutions can make in your business and life. Welcome to a world of increased productivity, higher profits, and unparalleled efficiency - welcome to Auto.AI Repair Pros.</p>
+    <div class="register-form">
+      <form method="POST">
+        {{ form.csrf_token }}
+        <div>
+          {{ form.email.label }}<br>
+          {{ form.email(size=40) }}
+        </div>
+        <div>
+          {{ form.password.label }}<br>
+          {{ form.password(size=40) }}
+          <div class="password-requirements">
+            <p class="requirements-title">Password requirements:</p>
+            <ul>
+              <li class="requirement">Minimum 8 characters</li>
+              <li class="requirement">At least one digit</li>
+              <li class="requirement">At least one uppercase letter</li>
+              <li class="requirement">At least one lowercase letter</li>
+              <li class="requirement">At least one special character</li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          {{ form.confirm_password.label }}<br>
+          {{ form.confirm_password(size=40) }}
+        </div>
+        <div>
+          {{ form.submit() }}
+        </div>
+      </form>
+    </div>
+    <p>Already have an account? <a href="{{ url_for('login') }}">Log in</a></p>
+  </div>
+</body>
+</html>
+
+ 

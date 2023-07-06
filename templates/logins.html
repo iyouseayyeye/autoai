@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/*css for page*/
+    body {
+      font-family: 'Lato', sans-serif;
+      background-image: url("{{ url_for('static', filename='ai_male_2.jpg') }}");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+      color: #007bff;
+    }
+
+    .logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .logo img {
+      width: 200px;
+      height: auto;
+    }
+
+    .bubble {
+      width: 500px;
+      padding: 25px;
+      border-radius: 10px;
+      background-color: rgba(253, 233, 189, 0.8);
+      box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .bubble h1, .bubble p {
+      color: #007bff;
+    }
+
+    .bubble p {
+      font-size: 18px;
+    }
+
+    .bubble .login-form {
+      margin-top: 20px;
+    }
+
+    .bubble .login-form input[type="email"],
+    .bubble .login-form input[type="password"],
+    .bubble .login-form button[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: #fff;
+      color: #333;
+      font-size: 18px;
+    }
+
+    .bubble .login-form input[type="email"],
+    .bubble .login-form input[type="password"] {
+      height: 40px;
+    }
+
+    .bubble .login-form button[type="submit"] {
+      background-color: #007bff;
+      color: #fff;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .bubble .login-form button[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+
+    .bubble p.register-link {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 14px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <div class="logo">
+    <img src="{{ url_for('static', filename='brain1.png') }}" alt="Company Logo">
+  </div>
+  <div class="bubble">
+    <h1>Welcome back to AutoAI Repair Pros</h1>
+    <p>Log in to access your account</p>
+    <div class="login-form">
+      <form method="POST">
+        {{ form.hidden_tag() }}
+        <div>
+          {{ form.email.label }}<br>
+          {{ form.email(size=40, autocomplete="username") }}
+        </div>
+        <div>
+          {{ form.password.label }}<br>
+          {{ form.password(type="password", size=40, autocomplete="current-password") }}
+        </div>
+        <div>
+          {{ form.submit() }}
+        </div>
+        <a class="forgot-password-link" href="{{ url_for('reset_request') }}">Forgot password?</a>
+      </form>
+      <a href="{{ url_for('login_google') }}">
+        <img src="{{ url_for('static', filename='btn_google_signin_light_normal_web.png') }}" alt="Sign in with Google">
+
+      </a>
+    </div>
+    <p class="register-link">Don't have an account? <a href="{{ url_for('register') }}">Sign up</a></p>
+  </div>
+</body>
+</html>
+
